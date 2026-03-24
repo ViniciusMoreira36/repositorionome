@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Computação em Nuvem</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        line-height: 1.6;
+        background: #0a0e1a;
+        color: #e2e8f0;
+        min-height: 100vh;
+      }
+
+      /* ── Header ── */
+      header {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        border-bottom: 1px solid #1e40af44;
+        padding: 18px 32px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+      }
+
+      header svg {
+        flex-shrink: 0;
+      }
+
+      header strong {
+        font-size: 1.15rem;
+        letter-spacing: 0.03em;
+        color: #93c5fd;
+      }
+
+      /* ── Hero ── */
+      .hero {
+        background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        padding: 80px 24px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 60% 40% at 50% 0%, #3b82f640 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .hero-icon {
+        margin: 0 auto 24px;
+        display: block;
+        filter: drop-shadow(0 0 24px #3b82f6aa);
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50%       { transform: translateY(-10px); }
+      }
+
+      .hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 700;
+        color: #f0f9ff;
+        margin-bottom: 16px;
+        text-shadow: 0 2px 20px #3b82f655;
+      }
+
+      .hero p {
+        max-width: 680px;
+        margin: 0 auto 32px;
+        color: #94a3b8;
+        font-size: 1.05rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 14px 36px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 4px 24px #3b82f655;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px #7c3aed88;
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      /* ── Main content ── */
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 56px 24px;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #93c5fd;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, #3b82f644, transparent);
+      }
+
+      /* ── Cards grid ── */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: linear-gradient(145deg, #0f172a, #1e293b);
+        border: 1px solid #1e40af33;
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+
+      .card:hover {
+        border-color: #3b82f6aa;
+        transform: translateY(-3px);
+      }
+
+      .card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        color: #cbd5e1;
+        line-height: 1.5;
+      }
+
+      .card-text strong {
+        display: block;
+        color: #e2e8f0;
+        margin-bottom: 2px;
+        font-size: 0.95rem;
+      }
+
+      /* ── Footer ── */
+      footer {
+        background: #0f172a;
+        border-top: 1px solid #1e40af33;
+        text-align: center;
+        padding: 20px;
+        color: #475569;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <!-- cloud icon -->
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M17.5 19H9a5 5 0 1 1 .92-9.9A7 7 0 1 1 17.5 19Z"
+              fill="#3b82f6" stroke="#93c5fd" stroke-width="1.2"/>
+      </svg>
+      <strong>Computação em Nuvem</strong>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <!-- large cloud SVG -->
+      <svg class="hero-icon" width="120" height="80" viewBox="0 0 120 80" fill="none" aria-hidden="true">
+        <ellipse cx="60" cy="55" rx="50" ry="22" fill="#1e3a5f"/>
+        <circle cx="40" cy="45" r="22" fill="#1d4ed8"/>
+        <circle cx="65" cy="38" r="28" fill="#2563eb"/>
+        <circle cx="88" cy="46" r="18" fill="#1d4ed8"/>
+        <ellipse cx="60" cy="58" rx="48" ry="14" fill="#0f172a"/>
+        <!-- data lines -->
+        <line x1="60" y1="62" x2="60" y2="75" stroke="#93c5fd" stroke-width="2" stroke-dasharray="3 3"/>
+        <line x1="40" y1="65" x2="40" y2="75" stroke="#93c5fd" stroke-width="2" stroke-dasharray="3 3"/>
+        <line x1="80" y1="65" x2="80" y2="75" stroke="#93c5fd" stroke-width="2" stroke-dasharray="3 3"/>
+      </svg>
+
+      <h1>O que é computação em nuvem?</h1>
+      <p>
+        Computação em nuvem é a entrega de recursos de TI pela internet — como servidores, armazenamento,
+        bancos de dados, redes e softwares — de forma sob demanda. Em vez de comprar e manter infraestrutura
+        própria, você utiliza serviços em data centers remotos, pagando conforme o uso e ganhando flexibilidade
+        para aumentar ou reduzir a capacidade rapidamente.
+      </p>
+      <a href="#servicos" class="btn">Explorar serviços</a>
+    </section>
+
+    <!-- Services -->
+    <main id="servicos">
+      <h2 class="section-title">Exemplos de serviços em nuvem</h2>
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-icon">
+            <!-- folder/storage icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+                    fill="#93c5fd"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <strong>Armazenamento de arquivos</strong>
+            Google Drive, OneDrive, Dropbox
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <!-- server icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="7" rx="2" fill="#93c5fd"/>
+              <rect x="2" y="14" width="20" height="7" rx="2" fill="#93c5fd" opacity=".7"/>
+              <circle cx="6" cy="6.5" r="1.2" fill="#0f172a"/>
+              <circle cx="6" cy="17.5" r="1.2" fill="#0f172a"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <strong>Hospedagem e servidores virtuais</strong>
+            Amazon EC2, Azure Virtual Machines
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <!-- database icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <ellipse cx="12" cy="6" rx="8" ry="3" fill="#93c5fd"/>
+              <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" fill="#93c5fd" opacity=".7"/>
+              <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" fill="#93c5fd" opacity=".4"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <strong>Bancos de dados gerenciados</strong>
+            Amazon RDS, Cloud SQL
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <!-- lambda/function icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 20 L9 4 L12 12 L15 8 L20 20" stroke="#93c5fd" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <strong>Computação serverless</strong>
+            AWS Lambda, Azure Functions
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <!-- deploy/rocket icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2C12 2 7 7 7 13a5 5 0 0 0 10 0c0-6-5-11-5-11Z" fill="#93c5fd"/>
+              <circle cx="12" cy="13" r="2" fill="#0f172a"/>
+              <path d="M9 20l-2 2M15 20l2 2" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <strong>Plataformas de hospedagem</strong>
+            Vercel, Netlify, Heroku
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <small>© 2026 Computação em Nuvem</small>
+    </footer>
+
+  </body>
+</html>
